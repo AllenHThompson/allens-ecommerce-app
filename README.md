@@ -1,5 +1,8 @@
 #Allen's E-Commerce App
 
+##Setup
+* set up database server https://mlab.com/databases/allens-ecommerce-app
+
 ##Overview
 *This is a ecommerce sandbox app where you can order products and pay with a bank card. This is a sandbox full-stack MEAN stack project meant for practice.
 
