@@ -60,7 +60,6 @@ app.controller('optionsController', function($scope, $http, $location) {
 
      $http.get(API + '/options')
      .success(function(data) {
-          console.log(data);
           $scope.coffeeOptions = data;
      });
 
@@ -137,7 +136,9 @@ app.controller('loginController', function($scope, $http, $location, $cookies) {
      $scope.login = function() {
           credentials._id = $scope.username;
           credentials.password = $scope.password;
-          $http.post(API + '/login', credentials).success(function(data) {
+
+          $http.post(API + '/login', credentials)
+          .success(function(data) {
                $cookies.put('Token', data.token);
                $location.path('/options');
           });
