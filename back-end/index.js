@@ -10,7 +10,7 @@ var cors = require('cors');
 
 /* MongoDB Setup */
 var creds = require('./mongo_creds.json');
-mongoose.connect('mongodb://' + creds.username + ':' + creds.password + 'ds147777.mlab.com:47777/allens-ecommerce-app');
+mongoose.connect('mongodb://' + creds.username + ':' + creds.password + '@ds147777.mlab.com:47777/allens-ecommerce-app');
 
 
 /* bcrypt Setup */
@@ -106,11 +106,12 @@ app.post('/login', function(request, response){
      var token = '';     /*   used by rand-token */
 
      /* step 1: fetch the user's record from the database */
+
      var credentials = request.body;
      // response.send('ok');
 
-     User.findOne({_id: credentials._id }, function(error, findResponse){
-          if(error){
+     User.findOne({_id: credentials._id }, function(error, findResponse) {
+          if(error) {
                console.log('an error occured while reading data for user [' + credentials._id + '] from the database]');
                console.error(error.message);
                return;
@@ -132,9 +133,9 @@ app.post('/login', function(request, response){
                     /*
                     need to send failure response with status code 409
                     {
-                    "status" : "fail",
-                    "message" : "invalid user name or password"
-               }
+                         "status" : "fail",
+                         "message" : "invalid user name or password"
+                    }
                */
                console.log('***** CONFIRM THAT WE ARE RETURNING THE CORRECT ERROR CODES *****');
                response.status(401);
