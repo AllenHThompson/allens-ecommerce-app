@@ -1,5 +1,9 @@
 #Allen's E-Commerce App
 
+##FEATURES TO ADD
+* PREFILL ADDRESS FOR MULTIPLE ORDERS (VALID LOGIN TO GET ADDRESS)
+* WHAT DOES THE QUANTITY HAVE TO DO WITH IT
+
 ##Setup
 * set up database server https://mlab.com/databases/allens-ecommerce-app
 
