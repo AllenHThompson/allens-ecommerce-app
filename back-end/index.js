@@ -39,7 +39,6 @@ var coffeeOptions = [
 /* Routes */
 app.get('/options', function(request, response) {
      response.json(coffeeOptions);
-
 });
 
 app.post('/signup', function(request, response) {

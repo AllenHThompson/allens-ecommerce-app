@@ -52,15 +52,20 @@ var order = {
      total: null
 };
 
-//Changed API to local host to test
+/*ADUSTED API POINTER API TO LOCAL HOST TO TEST*/
 //var API = 'https://coffeeapp-yukwkebcef.now.sh';
 var API = 'http://localhost:8000';
 
 app.controller('optionsController', function($scope, $http, $location) {
-
+/*EXPERIMENTING WITH PROMISES INSTEAD OF .SUCCESS METHOD CHAINED TO THE API CALL*/
      $http.get(API + '/options')
-     .success(function(data) {
-          $scope.coffeeOptions = data;
+     .then(function(promise) {
+          console.log("We found the promise object", promise);
+          console.log("We found the options data", promise.data);
+          $scope.coffeeOptions = promise.data;
+     })
+     .catch(function(error){
+          console.log("Couldn't find the data because", error);
      });
 
      $scope.submit1 = function(quantity) {
